@@ -8,6 +8,8 @@
 
 import UIKit
 import NotificationBannerSwift
+import Simple_Networking
+import SVProgressHUD
 class LoginViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var emailTextField: UITextField!
@@ -28,6 +30,7 @@ class LoginViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
     }
     private func performaceLogin() {
+        view.endEditing(true)
         guard let email = emailTextField.text, !email.isEmpty else {
             NotificationBanner(title: "Error", subtitle: "Debes ingresar un correo", style: .danger).show()
             return
@@ -37,6 +40,21 @@ class LoginViewController: UIViewController {
             return
         }
         // Logica para el Login
-        
+        let request = LoginRequest(email: email, password: password)
+        SVProgressHUD.show()
+        SN.post(endpoint: Endpoints.login, model: request) { (response: SNResultWithEntity<LoginResponse, ErrorResponse>) in
+            SVProgressHUD.dismiss()
+            switch response {
+            case .success(let user):
+                NotificationBanner(subtitle: "Bienvenido: \(user.user.names)", style: .success).show()
+                self.performSegue(withIdentifier: "showHome", sender: nil)
+            case .error(let error):
+                NotificationBanner(title: "Error",subtitle: "Hubo un error: \(error.localizedDescription)", style: .danger).show()
+                return
+            case .errorResult(let entity):
+                NotificationBanner(title: "Error",subtitle: "Hubo un error: \(entity.error)", style: .danger).show()
+                return
+            }
+        }
     }
 }

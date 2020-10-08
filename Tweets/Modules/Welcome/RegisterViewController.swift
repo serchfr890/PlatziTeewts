@@ -8,6 +8,8 @@
 
 import UIKit
 import NotificationBannerSwift
+import Simple_Networking
+import SVProgressHUD
 class RegisterViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var emailTextField: UITextField!
@@ -21,13 +23,15 @@ class RegisterViewController: UIViewController {
     // MARK: - Life Cicles
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
     }
     // MARK: - Private Methods
     private func setupUI() {
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isHidden = false
         registerButton.layer.cornerRadius = 15
     }
     private func performanceRegister() {
+        view.endEditing(true)
         guard let email = emailTextField.text, !email.isEmpty else {
             NotificationBanner(title: "Error", subtitle: "Debes ingresar un correo", style: .danger).show()
             return
@@ -41,5 +45,19 @@ class RegisterViewController: UIViewController {
             return
         }
         // Logica para el registro
+        SVProgressHUD.show()
+        let request = RegisterRequest(email: email, names: names, password: password)
+        SN.post(endpoint: Endpoints.register, model: request) { (response: SNResultWithEntity<LoginResponse, ErrorResponse>) in
+            SVProgressHUD.dismiss()
+            switch response {
+            case .success(let user):
+                NotificationBanner(subtitle: "Bienvenido: \(user.user.names)", style: .success).show()
+                self.performSegue(withIdentifier: "showHome", sender: nil)
+            case .error(let error):
+                NotificationBanner(title: "Error", subtitle: "Hubo un error: \(error.localizedDescription)", style: .danger).show()
+            case .errorResult(let entity):
+                NotificationBanner(title: "Error", subtitle: "Hubo un error: \(entity.error)", style: .danger).show()
+            }
+        }
     }
 }

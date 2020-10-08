@@ -124,7 +124,7 @@
                                             <constraint firstAttribute="height" constant="40" id="9Yc-bL-5GV"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ACd-5X-BKv">
                                         <rect key="frame" x="0.0" y="100" width="374" height="40"/>
@@ -174,6 +174,7 @@
                         <outlet property="namesTextField" destination="i66-u8-hXx" id="q9x-Ei-gc1"/>
                         <outlet property="passwordTextField" destination="ACd-5X-BKv" id="jJk-v5-6I0"/>
                         <outlet property="registerButton" destination="KAB-0j-okb" id="OXi-H1-q2E"/>
+                        <segue destination="SBH-3q-pxq" kind="presentation" identifier="showHome" modalPresentationStyle="fullScreen" id="iS4-nT-fLZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2w9-Kx-aPQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -197,7 +198,7 @@
                                             <constraint firstAttribute="height" constant="40" id="FXo-Jd-nNe"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F2g-eq-7iV">
                                         <rect key="frame" x="0.0" y="50" width="374" height="40"/>
@@ -205,7 +206,7 @@
                                             <constraint firstAttribute="height" constant="40" id="amW-ZU-chC"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWD-Zo-wuR">
                                         <rect key="frame" x="0.0" y="100" width="374" height="40"/>
@@ -246,11 +247,20 @@
                         <outlet property="emailTextField" destination="RAt-wJ-e80" id="qkW-G3-ve5"/>
                         <outlet property="loginButton" destination="uWD-Zo-wuR" id="Ukv-vH-lbk"/>
                         <outlet property="passwordTextField" destination="F2g-eq-7iV" id="3VV-5c-jTG"/>
+                        <segue destination="SBH-3q-pxq" kind="presentation" identifier="showHome" modalPresentationStyle="fullScreen" id="QHQ-FU-m2n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="efI-RE-fvg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2028.985507246377" y="-283.25892857142856"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="7v4-1H-Knk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="SBH-3q-pxq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nee-CY-m0x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3092" y="8"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yl3-Ba-h6g">
@@ -271,6 +281,9 @@
             <point key="canvasLocation" x="121.73913043478262" y="132.58928571428572"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="iS4-nT-fLZ"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="bottomImage" width="351.5" height="123"/>
         <image name="loginBg" width="640" height="425"/>
