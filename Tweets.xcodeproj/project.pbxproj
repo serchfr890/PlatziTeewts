@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,9 @@
 		7C8B25A4252F8487006D0023 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8B25A2252F8487006D0023 /* LaunchScreen.storyboard */; };
 		7C8B25AF252F8488006D0023 /* TweetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8B25AE252F8488006D0023 /* TweetsTests.swift */; };
 		7C8B25BA252F8488006D0023 /* TweetsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8B25B9252F8488006D0023 /* TweetsUITests.swift */; };
+		7C8FCEBF252F9B5800493715 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8FCEBE252F9B5800493715 /* WelcomeViewController.swift */; };
+		7C8FCEC1252F9CBF00493715 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8FCEC0252F9CBF00493715 /* LoginViewController.swift */; };
+		7C8FCEC3252F9CD600493715 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8FCEC2252F9CD600493715 /* RegisterViewController.swift */; };
 		7C97B9F0252F868900237BB6 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C97B9EF252F868900237BB6 /* Welcome.storyboard */; };
 		A3A87B3A56C8186D73713CBB /* Pods_Tweets_TweetsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A1094940E3B59653D9B724F /* Pods_Tweets_TweetsUITests.framework */; };
 		F829434F3E53994688F4F078 /* Pods_Tweets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96831E3459DAC6392FDE6F46 /* Pods_Tweets.framework */; };
@@ -53,6 +56,9 @@
 		7C8B25B5252F8488006D0023 /* TweetsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TweetsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C8B25B9252F8488006D0023 /* TweetsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetsUITests.swift; sourceTree = "<group>"; };
 		7C8B25BB252F8488006D0023 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C8FCEBE252F9B5800493715 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		7C8FCEC0252F9CBF00493715 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7C8FCEC2252F9CD600493715 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		7C97B9EF252F868900237BB6 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 		96831E3459DAC6392FDE6F46 /* Pods_Tweets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tweets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A1094940E3B59653D9B724F /* Pods_Tweets_TweetsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tweets_TweetsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,7 +103,6 @@
 				CF050ECDD3BFC4C9CB373FF4 /* Pods-TweetsTests.debug.xcconfig */,
 				69E9E5F2A64C5F9F2CFDF184 /* Pods-TweetsTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -183,6 +188,9 @@
 			isa = PBXGroup;
 			children = (
 				7C97B9EF252F868900237BB6 /* Welcome.storyboard */,
+				7C8FCEC0252F9CBF00493715 /* LoginViewController.swift */,
+				7C8FCEC2252F9CD600493715 /* RegisterViewController.swift */,
+				7C8FCEBE252F9B5800493715 /* WelcomeViewController.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -426,7 +434,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C8FCEC1252F9CBF00493715 /* LoginViewController.swift in Sources */,
 				7C8B2598252F8485006D0023 /* AppDelegate.swift in Sources */,
+				7C8FCEBF252F9B5800493715 /* WelcomeViewController.swift in Sources */,
+				7C8FCEC3252F9CD600493715 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
