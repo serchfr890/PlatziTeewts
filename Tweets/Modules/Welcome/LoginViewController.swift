@@ -28,6 +28,8 @@ class LoginViewController: UIViewController {
     private func setupUI() {
         loginButton.layer.cornerRadius = 15
         navigationController?.navigationBar.isHidden = false
+        emailTextField.text = "serchtest@test.com"
+        passwordTextField.text = "qwerty"
     }
     private func performaceLogin() {
         view.endEditing(true)
@@ -48,12 +50,11 @@ class LoginViewController: UIViewController {
             case .success(let user):
                 NotificationBanner(subtitle: "Bienvenido: \(user.user.names)", style: .success).show()
                 self.performSegue(withIdentifier: "showHome", sender: nil)
+                SimpleNetworking.setAuthenticationHeader(prefix: "", token: user.token)
             case .error(let error):
                 NotificationBanner(title: "Error",subtitle: "Hubo un error: \(error.localizedDescription)", style: .danger).show()
-                return
             case .errorResult(let entity):
                 NotificationBanner(title: "Error",subtitle: "Hubo un error: \(entity.error)", style: .danger).show()
-                return
             }
         }
     }

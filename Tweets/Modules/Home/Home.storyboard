@@ -8,26 +8,32 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Tweets-->
         <scene sceneID="2wp-05-HoG">
             <objects>
-                <viewController id="Znu-rd-GRO" sceneMemberID="viewController">
+                <viewController id="Znu-rd-GRO" customClass="HomeViewController" customModule="Tweets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wDe-gc-h5M">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hoem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZa-PK-8fc">
-                                <rect key="frame" x="186" y="423" width="46" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tec-qB-qfh">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="tec-qB-qfh" firstAttribute="leading" secondItem="54L-Fm-gU8" secondAttribute="leading" id="6vN-on-FDC"/>
+                            <constraint firstItem="tec-qB-qfh" firstAttribute="top" secondItem="wDe-gc-h5M" secondAttribute="top" id="9Yq-gi-lLY"/>
+                            <constraint firstAttribute="bottom" secondItem="tec-qB-qfh" secondAttribute="bottom" id="KfR-Ec-yYn"/>
+                            <constraint firstItem="tec-qB-qfh" firstAttribute="trailing" secondItem="54L-Fm-gU8" secondAttribute="trailing" id="hrc-jL-FWd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="54L-Fm-gU8"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gXw-zb-pGQ"/>
+                    <navigationItem key="navigationItem" title="Tweets" id="gXw-zb-pGQ"/>
+                    <connections>
+                        <outlet property="tableView" destination="tec-qB-qfh" id="nM2-Qw-P1Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lko-8r-oKN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -38,8 +44,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7OW-8u-wcO" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TRU-Qu-wuq">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="TRU-Qu-wuq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
