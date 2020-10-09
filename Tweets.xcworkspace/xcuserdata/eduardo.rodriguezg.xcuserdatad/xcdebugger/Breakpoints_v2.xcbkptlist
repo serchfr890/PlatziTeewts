@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "30DAE1A5-9547-485A-ABC5-CA9D39C6A54B"
-            shouldBeEnabled = "Yes"
+            uuid = "09407A64-0760-4C5E-A20B-040CF51C31FA"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Tweets/Modules/Home/HomeViewController.swift"
+            filePath = "Tweets/Modules/Home/AddPostViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "getPost()"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "dissmissAction()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

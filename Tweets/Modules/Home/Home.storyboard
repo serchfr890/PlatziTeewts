@@ -20,6 +20,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUN-HA-fed">
+                                <rect key="frame" x="334" y="792" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1Dj-P6-pA4"/>
+                                    <constraint firstAttribute="width" constant="50" id="cZZ-xc-zkh"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="showNewTweetVC" destination="Znu-rd-GRO" eventType="touchUpInside" id="fnO-MQ-ePQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -27,17 +38,105 @@
                             <constraint firstItem="tec-qB-qfh" firstAttribute="top" secondItem="wDe-gc-h5M" secondAttribute="top" id="9Yq-gi-lLY"/>
                             <constraint firstAttribute="bottom" secondItem="tec-qB-qfh" secondAttribute="bottom" id="KfR-Ec-yYn"/>
                             <constraint firstItem="tec-qB-qfh" firstAttribute="trailing" secondItem="54L-Fm-gU8" secondAttribute="trailing" id="hrc-jL-FWd"/>
+                            <constraint firstItem="KUN-HA-fed" firstAttribute="trailing" secondItem="54L-Fm-gU8" secondAttribute="trailing" constant="-30" id="iak-y2-FYD"/>
+                            <constraint firstItem="54L-Fm-gU8" firstAttribute="bottom" secondItem="KUN-HA-fed" secondAttribute="bottom" constant="20" id="l3v-N7-I0g"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="54L-Fm-gU8"/>
                     </view>
                     <navigationItem key="navigationItem" title="Tweets" id="gXw-zb-pGQ"/>
                     <connections>
                         <outlet property="tableView" destination="tec-qB-qfh" id="nM2-Qw-P1Y"/>
+                        <segue destination="Xp0-Xx-uBt" kind="presentation" identifier="showNewTweet" modalPresentationStyle="fullScreen" id="NRk-Va-f9B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lko-8r-oKN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="944.92753623188412" y="130.58035714285714"/>
+        </scene>
+        <!--Add Post View Controller-->
+        <scene sceneID="AL1-8M-AvE">
+            <objects>
+                <viewController id="Xp0-Xx-uBt" customClass="AddPostViewController" customModule="Tweets" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w9C-42-aQ7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nuevo Tweet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0r-xL-VX1">
+                                <rect key="frame" x="20" y="64" width="374" height="43"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASf-2Y-gAG">
+                                <rect key="frame" x="351" y="65.5" width="43" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="fZe-88-T9i"/>
+                                </constraints>
+                                <state key="normal" title="Volver"/>
+                                <connections>
+                                    <action selector="dissmissAction" destination="Xp0-Xx-uBt" eventType="touchUpInside" id="NJM-FR-Kax"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0E3-AX-RIT">
+                                <rect key="frame" x="20" y="117" width="374" height="210"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d96-0Z-gqM">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="150"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="0.29178587147887325" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="Udx-Er-12A"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rmd-Ss-cFk">
+                                        <rect key="frame" x="0.0" y="170" width="374" height="40"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="BCa-j6-DeQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <state key="normal" title="Publicar">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addPostAction" destination="Xp0-Xx-uBt" eventType="touchUpInside" id="o6z-F0-hVa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottomImage" translatesAutoresizingMaskIntoConstraints="NO" id="n3y-LM-wH3">
+                                <rect key="frame" x="0.0" y="746" width="414" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="uiH-Tq-4xh"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="d5L-9X-I2f" firstAttribute="trailing" secondItem="ASf-2Y-gAG" secondAttribute="trailing" constant="20" id="2Wm-tW-skU"/>
+                            <constraint firstItem="d5L-9X-I2f" firstAttribute="trailing" secondItem="U0r-xL-VX1" secondAttribute="trailing" constant="20" id="8dn-z4-2Th"/>
+                            <constraint firstItem="U0r-xL-VX1" firstAttribute="leading" secondItem="d5L-9X-I2f" secondAttribute="leading" constant="20" id="MBL-UI-4Cm"/>
+                            <constraint firstItem="U0r-xL-VX1" firstAttribute="top" secondItem="d5L-9X-I2f" secondAttribute="top" constant="20" id="Qc7-7t-cky"/>
+                            <constraint firstItem="d5L-9X-I2f" firstAttribute="trailing" secondItem="0E3-AX-RIT" secondAttribute="trailing" constant="20" id="YJs-id-9PP"/>
+                            <constraint firstItem="ASf-2Y-gAG" firstAttribute="centerY" secondItem="U0r-xL-VX1" secondAttribute="centerY" id="anX-8u-vdz"/>
+                            <constraint firstItem="n3y-LM-wH3" firstAttribute="trailing" secondItem="d5L-9X-I2f" secondAttribute="trailing" id="axu-1G-SJA"/>
+                            <constraint firstAttribute="bottom" secondItem="n3y-LM-wH3" secondAttribute="bottom" id="bfw-c5-OgC"/>
+                            <constraint firstItem="0E3-AX-RIT" firstAttribute="leading" secondItem="d5L-9X-I2f" secondAttribute="leading" constant="20" id="d3B-lF-wdd"/>
+                            <constraint firstItem="n3y-LM-wH3" firstAttribute="leading" secondItem="d5L-9X-I2f" secondAttribute="leading" id="fw4-JM-HpL"/>
+                            <constraint firstItem="0E3-AX-RIT" firstAttribute="top" secondItem="U0r-xL-VX1" secondAttribute="bottom" constant="10" id="zgU-db-ll6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="d5L-9X-I2f"/>
+                    </view>
+                    <connections>
+                        <outlet property="addPostButton" destination="Rmd-Ss-cFk" id="jzj-pU-bEe"/>
+                        <outlet property="postTextView" destination="d96-0Z-gqM" id="LK2-cB-nou"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tzr-LZ-FDO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1843.4782608695652" y="478.79464285714283"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NOE-Ko-FZn">
@@ -58,4 +157,7 @@
             <point key="canvasLocation" x="34.782608695652179" y="130.58035714285714"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bottomImage" width="351.5" height="123"/>
+    </resources>
 </document>

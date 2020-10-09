@@ -13,6 +13,10 @@ import NotificationBannerSwift
 class HomeViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
+    // MARK: - Actions
+    @IBAction func showNewTweetVC() {
+        performSegue(withIdentifier: "showNewTweet", sender: nil)
+    }
     // MARK: Properties
     let cellId = "TweetTableViewCell"
     private var dataSource = [PostResponse]()
@@ -20,6 +24,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         getPost()
     }
     // MARK: Private Methods
@@ -48,7 +55,6 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         if let cell = cell as? TweetTableViewCell {

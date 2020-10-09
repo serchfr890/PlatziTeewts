@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct PostRquestlocation {
+struct PostRequestLocation: Codable {
     let text: String
     let imageUrl: String?
     let videoUrl: String?
